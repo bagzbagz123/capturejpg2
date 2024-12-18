@@ -2397,45 +2397,40 @@ html.cl-loaded .home-content__main {
 }
 
 
-
 /* ===================================================================
  * # works
- *
  * ------------------------------------------------------------------- */
-.s-works {
+ .s-works {
     background: #FFFFFF;
-    padding: 0 0 15rem 0;
+    padding: 0 0 10rem 0;
     min-height: 800px;
     position: relative;
 }
 
 .s-works .intro-wrap {
-    padding: 15rem 0 25.2rem;
+    padding: 10rem 0 5rem;
     background: #111111;
 }
 
 .works-content {
     max-width: 1160px;
+    margin: auto; /* Centering the content */
     margin-top: -23.4rem;
 }
-
 
 /* ------------------------------------------------------------------- 
  * ## bricks/masonry
  * ------------------------------------------------------------------- */
-.masonry:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
- .masonry__brick {
-    width: 50%;
+.masonry {
+    display: flex; /* Use flex for layout instead of float */
+    flex-wrap: wrap;
+    gap: 1rem; /* Add spacing between items */
 }
 
 .masonry__brick {
-    float: left;
-    padding: 0;
+    width: calc(50% - 1rem); /* Responsive width with gap in mind */
+    position: relative;
+    overflow: hidden;
 }
 
 .item-folio {
@@ -2445,26 +2440,26 @@ html.cl-loaded .home-content__main {
 
 .item-folio__thumb img {
     vertical-align: bottom;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    width: 100%; /* Ensure images are responsive */
+    height: auto;
+    transition: transform 0.5s ease-in-out;
 }
 
 .item-folio__thumb a {
     display: block;
+    position: relative;
 }
 
 .item-folio__thumb a::before {
-    display: block;
-    background-color: rgba(0, 0, 0, 0.8);
     content: "";
-    opacity: 0;
-    visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-transition: all 0.5s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
     transition: all 0.5s ease-in-out;
     z-index: 1;
 }
@@ -2473,24 +2468,14 @@ html.cl-loaded .home-content__main {
     content: "+";
     font-family: georgia, serif;
     font-size: 2.7rem;
-    display: block;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
-    margin-left: -15px;
-    margin-top: -15px;
     position: absolute;
     left: 50%;
     top: 50%;
-    text-align: center;
+    transform: translate(-50%, -50%) scale(0.5);
     color: rgba(255, 255, 255, 0.8);
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
     z-index: 1;
 }
 
@@ -2502,10 +2487,7 @@ html.cl-loaded .home-content__main {
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: translate3d(0, 100%, 0);
-    -ms-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    -webkit-transition: all 0.3s ease-in-out;
+    transform: translateY(100%);
     transition: all 0.3s ease-in-out;
 }
 
@@ -2515,8 +2497,8 @@ html.cl-loaded .home-content__main {
     line-height: 1.286;
     color: #FFFFFF;
     text-transform: uppercase;
-    letter-spacing: .2rem;
-    margin: 0 0 .3rem 0;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.3rem;
 }
 
 .item-folio__cat {
@@ -2524,58 +2506,9 @@ html.cl-loaded .home-content__main {
     font-family: "montserrat-light", sans-serif;
     font-size: 1.4rem;
     line-height: 1.714;
-    margin-bottom: 0;
 }
 
-.item-folio__caption {
-    display: none;
-}
-
-.item-folio__project-link {
-    display: block;
-    color: #FFFFFF;
-    box-shadow: 0 0 0 1px #FFFFFF;
-    border-radius: 50%;
-    height: 4.2rem;
-    width: 4.2rem;
-    text-align: center;
-    z-index: 500;
-    position: absolute;
-    top: 3rem;
-    left: 3rem;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transform: translate3d(0, -100%, 0);
-    -ms-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-}
-
-.item-folio__project-link i {
-    font-size: 1.8rem;
-    line-height: 4.2rem;
-}
-
-.item-folio__project-link::before {
-    display: block;
-    content: "";
-    height: 3rem;
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
-    position: absolute;
-    top: -3rem;
-    left: 50%;
-}
-
-.item-folio__project-link:hover,
-.item-folio__project-link:focus,
-.item-folio__project-link:active {
-    background-color: #FFFFFF;
-    color: #000000;
-}
-
-
-/* on hover 
- * ----------------------------------------------- */
+/* Hover Effects */
 .item-folio:hover .item-folio__thumb a::before {
     opacity: 1;
     visibility: visible;
@@ -2584,33 +2517,150 @@ html.cl-loaded .home-content__main {
 .item-folio:hover .item-folio__thumb a::after {
     opacity: 1;
     visibility: visible;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .item-folio:hover .item-folio__thumb img {
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
     transform: scale(1.05);
 }
 
-.item-folio:hover .item-folio__project-link,
 .item-folio:hover .item-folio__text {
     opacity: 1;
     visibility: visible;
-    -webkit-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
 }
 
+.album .responsive-container-block {
+    min-height: 75px;
+    height: fit-content;
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    justify-content: flex-start;
+  }
+  
+  .album .responsive-container-block.bg {
+    max-width: 1320px;
+    margin: 0 0 0 0;
+    justify-content: space-between;
+  }
+  
+  .album .img {
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+  
+  .album #i9rb {
+    color: black;
+  }
+  
+  .album #ir6i {
+    color: black;
+  }
+  
+  .album #ikz3b {
+    color: black;
+  }
+  
+  .album .responsive-container-block.img-cont {
+    flex-direction: column;
+    max-width: 33.3%;
+    min-height: auto;
+    margin: 0 0 0 0;
+    height: 100%;
+  }
+  
+  .album #ipix {
+    color: black;
+  }
+  
+  .album #ipzoh {
+    color: black;
+  }
+  
+  .album #ig5q8 {
+    color: black;
+  }
+  
+  .album #imtzl {
+    color: black;
+  }
+  
+  .album #i53es {
+    color: black;
+  }
+  
+  .album .img.img-big {
+    height: 50%;
+    margin: 0 0 16px 0;
+  }
+  
+  @media (max-width: 1024px) {
+    .album .img {
+      margin: 0 0 18px 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .album .img {
+      max-width: 32.5%;
+      margin: 0 0 0 0;
+    }
+  
+    .album .responsive-container-block.bg {
+      flex-direction: column;
+    }
+  
+    .album .responsive-container-block.img-cont {
+      max-width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .album .img.img-big {
+      max-width: 49%;
+      margin: 0 0 0 0;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .album .img {
+      max-width: 94%;
+      margin: 0 0 25px 0;
+    }
+  
+    .album .responsive-container-block.img-cont {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 10px 10px 10px;
+    }
+  
+    .album .img.img-big {
+      max-width: 94%;
+      margin: 0 0 25px 0;
+    }
+  
+    .album .img.img-last {
+      margin: 0 0 5px 0;
+    }
+  }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * works
- * ------------------------------------------------------------------- */
+/* Responsive Design */
 @media only screen and (max-width: 800px) {
-    .item-folio__title, .item-folio__cat {
+    .masonry__brick {
+        width: calc(50% - 0.5rem); /* Adjust gap for smaller screens */
+    }
+
+    .item-folio__title,
+    .item-folio__cat {
         font-size: 1.3rem;
     }
 }
@@ -2619,22 +2669,24 @@ html.cl-loaded .home-content__main {
     .s-works {
         padding-bottom: 12rem;
     }
+
     .s-works .intro-wrap {
         padding: 12rem 0 25.2rem;
     }
+
     .works-content {
         margin-top: -25.2rem;
     }
+
     .masonry__brick {
-        float: none;
-        width: 100%;
+        width: 100%; /* Single-column layout */
     }
-    .item-folio__title, .item-folio__cat {
+
+    .item-folio__title,
+    .item-folio__cat {
         font-size: 1.4rem;
     }
 }
-
-
 
 /* ===================================================================
  * # clients
@@ -3228,13 +3280,14 @@ html.cl-loaded .home-content__main {
  * # footer
  *
  * ------------------------------------------------------------------- */
-footer {
+ footer {
     padding: 9rem 0 6rem;
     font-family: "montserrat-light", sans-serif;
     font-size: 15px;
     line-height: 2;
     text-align: center;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8); /* Increased visibility */
+    background-color: #111; /* Added dark background for contrast */
 }
 
 footer h4 {
@@ -3246,23 +3299,46 @@ footer h4 {
 }
 
 footer a {
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.8); /* Improved visibility of links */
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-footer a:hover, footer a:focus, footer a:active {
-    color: #ff3c3cda;
+footer a:hover,
+footer a:focus,
+footer a:active {
+    color: #ff3c3c; /* Highlight color for interactivity */
 }
 
 footer .row {
     max-width: 980px;
+    margin: 0 auto; /* Center content within the footer */
 }
-
 
 /* --------------------------------------------------------------- 
  * ## footer main
  * --------------------------------------------------------------- */
 .footer-main {
     text-align: left;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#main-content {
+    flex: 1;
+}
+
+footer {
+    margin: 0;
 }
 
 .footer-main .left {
@@ -3286,7 +3362,6 @@ footer .row {
     font: 0/0 a;
     text-shadow: none;
     color: transparent;
-    -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
@@ -3304,37 +3379,18 @@ footer .row {
     width: 100%;
     height: 5.4rem;
     padding: 1.2rem 160px 1.2rem 60px;
-    background: url("../images/email-icon.png") 20px center no-repeat, rgba(0, 0, 0, 0.1);
+    background: url("../images/email-icon.png") 20px center no-repeat, rgba(255, 255, 255, 0.1);
     background-size: 24px 16px, auto;
     border: none;
     margin-bottom: 1.8rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8); /* Better input text visibility */
+    font-size: 14px;
+    border-radius: 5px; /* Slightly rounded corners for input */
 }
 
 .footer-subscribe #mc-form input[type="email"]:focus {
     color: #FFFFFF;
-}
-
-.footer-subscribe #mc-form input[type="email"]::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.2);
-}
-
-.footer-subscribe #mc-form input[type="email"]:-moz-placeholder {
-    color: rgba(255, 255, 255, 0.2);
-    /* Firefox 18- */
-}
-
-.footer-subscribe #mc-form input[type="email"]::-moz-placeholder {
-    color: rgba(255, 255, 255, 0.2);
-    /* Firefox 19+ */
-}
-
-.footer-subscribe #mc-form input[type="email"]:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.2);
-}
-
-.footer-subscribe #mc-form input[type="email"].placeholder {
-    color: rgba(255, 255, 255, 0.2) !important;
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle background change on focus */
 }
 
 .footer-subscribe #mc-form input[type=submit] {
@@ -3342,9 +3398,17 @@ footer .row {
     top: 0;
     right: 0;
     color: #FFFFFF;
-    background: #ff3c3cda;
-    border-color: #ff3c3cda;
+    background: #ff3c3c; /* Highlighted button color */
+    border: none;
     padding: 0 20px;
+    height: 100%;
+    border-radius: 0 5px 5px 0; /* Match the input's rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-subscribe #mc-form input[type=submit]:hover {
+    background-color: #e63232; /* Slightly darker red on hover */
 }
 
 .footer-subscribe #mc-form label {
@@ -3358,7 +3422,6 @@ footer .row {
     padding-right: 6px;
 }
 
-
 /* ---------------------------------------------------------------
  * ## footer bottom
  * --------------------------------------------------------------- */
@@ -3366,17 +3429,19 @@ footer .row {
     margin-top: 5.4rem;
     text-align: center;
     font-size: 14px;
+    color: rgba(255, 255, 255, 0.5); /* Subdued text for copyright */
 }
 
 .footer-bottom .copyright span {
     display: inline-block;
+    color: rgba(255, 255, 255, 0.8); /* Enhanced visibility */
 }
 
 .footer-bottom .copyright span::after {
     content: "|";
     display: inline-block;
     padding: 0 1rem 0 1.2rem;
-    color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.2);
 }
 
 .footer-bottom .copyright span:last-child::after {
