@@ -365,16 +365,16 @@
                 <form name="contactForm" id="contactForm" method="POST" action="https://formspree.io/f/mrblqdqb">
     <fieldset>
         <div class="form-field">
-            <input name="contactName" type="text" id="contactName" placeholder="Your Name" required class="full-width">
+            <input name="name" type="text" id="contactName" placeholder="Your Name" required class="full-width">
         </div>
         <div class="form-field">
-            <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" required class="full-width">
+            <input name="email" type="email" id="contactEmail" placeholder="Your Email" required class="full-width">
         </div>
         <div class="form-field">
-            <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" class="full-width">
+            <input name="subject" type="text" id="contactSubject" placeholder="Subject" class="full-width">
         </div>
         <div class="form-field">
-            <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="10" required class="full-width"></textarea>
+            <textarea name="message" id="contactMessage" placeholder="Your Message" rows="10" required class="full-width"></textarea>
         </div>
         <input type="hidden" name="_redirect" value="https://primecaptures.com/thank-you.html">
         <div class="form-field">
@@ -382,6 +382,7 @@
         </div>
     </fieldset>
 </form>
+
 
                 <div class="message-warning"> Something went wrong. Please try again.</div>
                 <div class="message-success"> Your message was sent, thank you!<br></div>
