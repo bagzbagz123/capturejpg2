@@ -2027,6 +2027,12 @@ html.cl-loaded .home-content__main {
     }
 }
 
+@media screen and (max-width: 600px) {
+  .home-content__line {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 500px) {
     .s-home {
         min-height: 642px;
