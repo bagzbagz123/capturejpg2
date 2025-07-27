@@ -3574,5 +3574,14 @@ footer {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .home-content__line,
+  .about__line,
+  .services__line,
+  .footer__line,
+  .section-line {
+    display: none !important;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
