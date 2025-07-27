@@ -3562,5 +3562,11 @@ footer {
     }
 }
 
+@media screen and (max-width: 600px) {
+  .home-content__scroll {
+    display: none;
+  }
+}
+
 
 /*# sourceMappingURL=main.css.map */
